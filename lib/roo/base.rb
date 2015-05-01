@@ -451,6 +451,7 @@ class Roo::Base
   end
 
   def local_filename(filename, tmpdir, packed)
+    return unless filename.is_a?(String)
     filename = download_uri(filename, tmpdir) if uri?(filename)
     filename = unzip(filename, tmpdir) if packed == :zip
     unless File.file?(filename)
